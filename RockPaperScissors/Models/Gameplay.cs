@@ -10,6 +10,9 @@ namespace RockPaperScissors.Models
 
         private static List<GamePlay> _gameRecord = new List<GamePlay>(){};
         
+        public int Id { get; }
+        
+        
         
         
         
@@ -18,6 +21,7 @@ namespace RockPaperScissors.Models
                 Player1 = myPlayer1;
                 Player2 = myPlayer2;
                 _gameRecord.Add(this);
+                Id = _gameRecord.Count;
             }
 
             public string DetermineWinner(string newPlayer1, string newPlayer2)
@@ -81,6 +85,11 @@ namespace RockPaperScissors.Models
             public static void ClearAllGamePlays()
             {
                 _gameRecord.Clear();
+            }
+
+            public static GamePlay FindGameId(int searchGameId)
+            {
+                return _gameRecord[searchGameId - 1];
             }
     }    
 }

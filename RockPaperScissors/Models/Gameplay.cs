@@ -13,7 +13,32 @@ namespace RockPaperScissors.Models
         public int Id { get; }
         
         
-        
+        public static string GetComputerVal()
+                    {
+                            Random randNo = new Random();
+                            int randNoInt = randNo.Next(1, 4); // above generates a number, on this line I tell it the range I want
+                            
+                    
+                            if(randNoInt == 1)
+                            {
+                                return "rock";
+                            }
+                            
+                            else if(randNoInt == 2)
+                            {
+                                return "paper";
+                            }
+                            
+                            else if(randNoInt == 3)
+                            {
+                                return "scissors";
+                            }
+
+                            else
+                            {
+                                return "no number retrieved";
+                            }
+                    }
         
         
             public GamePlay(string myPlayer1, string myPlayer2)
